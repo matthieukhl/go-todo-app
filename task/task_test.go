@@ -30,3 +30,19 @@ func TestDeleteTask(t *testing.T) {
 		t.Errorf("Expected 0 tasks, got %d", len(tasks))
 	}
 }
+
+func TestGetCompletedTasks(t *testing.T) {
+	tasks = []Task{
+		{ID: 1, Description: "Test Incomplete Task", Completed: false},
+		{ID: 2, Description: "Test Completed Task", Completed: true},
+	}
+
+	completedTasks := GetCompletedTasks()
+
+	if len(completedTasks) != 1 {
+		t.Errorf("Expected 1 completed task, got %d", len(completedTasks))
+	}
+	if completedTasks[0].Description != "Test Completed Task" {
+		t.Errorf("Expected 'Test Completed Task', got %s", completedTasks[0].Description)
+	}
+}

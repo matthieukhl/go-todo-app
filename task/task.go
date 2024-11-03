@@ -108,3 +108,24 @@ func LoadTasks() {
 		fmt.Println("Tasks loaded with success.")
 	}
 }
+
+func GetCompletedTasks() []Task {
+	var completedTasks []Task
+	for _, task := range tasks {
+		if task.Completed {
+			completedTasks = append(completedTasks, task)
+		}
+	}
+
+	if len(completedTasks) == 0 {
+		fmt.Println("No tasks have been completed.")
+		return nil
+	}
+	return completedTasks
+}
+
+func ShowCompletedTasks(completedTasks []Task) {
+	for _, task := range completedTasks {
+		fmt.Printf("%d. %s (Completed : %t)\n", task.ID, task.Description, task.Completed)
+	}
+}

@@ -49,6 +49,8 @@ func main() {
 		case 6:
 			fmt.Println("Bye !")
 			return
+		case 7:
+			task.ShowCompletedTasks(task.GetCompletedTasks())
 		default:
 			fmt.Println("\nNon valid choice. Please try again.")
 		}
@@ -63,4 +65,5 @@ func showMenu() {
 	fmt.Println("4. Display a specific task")
 	fmt.Println("5. Delete task")
 	fmt.Println("6. Quit")
+	fmt.Println("7. Show completed tasks")
 }
